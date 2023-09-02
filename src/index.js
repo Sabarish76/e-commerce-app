@@ -1,17 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { useEffect, useState } from "react";
+import ReactDOM from "react-dom/client";
+import Loading from "./Components/Loader/Loading";
+import "./index.css";
+import App from "./App";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { CartProvider } from "./Components/Context/CartContext";
+AOS.init();
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const MainApp = () => {
+  const [isLoading, SetisLoading] = useState(true);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  useEffect(() => {
+    setTimeout(() => {
+      SetisLoading(false);
+    }, 3500);
+  }, []);
+
+  return (
+    <React.StrictMode>
+      <CartProvider>{isLoading ? <Loading /> : <App />}</CartProvider>
+    </React.StrictMode>
+  );
+};
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<MainApp />);
