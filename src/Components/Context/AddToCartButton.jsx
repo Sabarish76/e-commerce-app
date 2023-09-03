@@ -1,5 +1,7 @@
 import React from "react";
 import { useCart } from "./CartContext";
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
 function AddToCartButton({ item }) {
   const { addToCart } = useCart();
@@ -10,9 +12,16 @@ function AddToCartButton({ item }) {
     } else {
       console.error("Item is undefined:", item);
     }
+    // toast("Item Added To Cart");
+    alert("Item Added To Cart");
   };
 
-  return <button onClick={() => handleAddToCart(item)}>Add to Cart</button>;
+  return (
+    <div>
+      <button onClick={() => handleAddToCart(item)}>Add to Cart</button>;
+      {/* <ToastContainer /> */}
+    </div>
+  );
 }
 
 export default AddToCartButton;

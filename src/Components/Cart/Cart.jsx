@@ -1,5 +1,6 @@
 import React from "react";
 import { useCart } from "../Context/CartContext";
+import { RiDeleteBin5Fill } from "react-icons/ri";
 
 const Cart = () => {
   const { cartItems, RemoveFromItem } = useCart();
@@ -8,27 +9,50 @@ const Cart = () => {
     <>
       <main>
         <h2 className="my-8 text-center text-3xl font-bold">
-          Your Cart Items : 0
+          {`Your Cart Items : ${cartItems.length}`}
         </h2>
-        <div className="w-[50%] mx-auto ">
-          <ul className="flex flex-col">
+        <div className="w-[65%] sm:w-[70%] mx-auto  ">
+          <ul className="flex flex-col leading-10">
             {cartItems.map((item) => (
-              <li key={item.id} className="my-10">
+              <li
+                key={item.id}
+                className="my-10 border flex flex-col sm:flex-row w-[90%] mx-auto items-center justify-between rounded-lg shadow-2xl"
+              >
                 <div>
-                  <img src={item.image} alt="img" className="h-60 w-60" />
+                  <img
+                    src={item.image}
+                    alt="img"
+                    className="h-80 sm:h-40 w-80 sm:w-40 rounded-lg shadow-sm"
+                  />
                 </div>
-                <div> {item.title} </div>
-                <div className="flex gap-10 justify-center">
-                  <button>+</button>
-                  <p>0</p>
-                  <button>-</button>
+                <div className="font-bold capitalize text-2xl my-3 sm:my-0">
+                  {" "}
+                  {item.title}{" "}
+                </div>
+                <div className="flex gap-10">
+                  <div>
+                    <button className="border px-3 bg-slate-300 hover:bg-slate-400 rounded-md">
+                      +
+                    </button>
+                  </div>
+                  <div>
+                    <p>0</p>
+                  </div>
+                  <div>
+                    {" "}
+                    <button className="border px-3 bg-slate-300 hover:bg-slate-400 rounded-md">
+                      -
+                    </button>
+                  </div>
                 </div>
                 <div>
                   {" "}
-                  <h1>{item.Price}</h1>{" "}
+                  <h1>R.s.{item.Price}</h1>{" "}
                 </div>
-                <div>
-                  <button onClick={() => RemoveFromItem(item)}>remove</button>
+                <div className="mx-5 mt-3 text-slate-300 hover:text-slate-400 ">
+                  <button onClick={() => RemoveFromItem(item)}>
+                    <RiDeleteBin5Fill size={40} />
+                  </button>
                 </div>
               </li>
             ))}

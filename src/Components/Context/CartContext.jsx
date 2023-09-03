@@ -5,7 +5,6 @@ export const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cartItems, SetcartItems] = useState(() => {
-    // Load cart items from local storage when the component is mounted
     const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     return storedCartItems;
   });

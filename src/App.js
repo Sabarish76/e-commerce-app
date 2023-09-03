@@ -9,6 +9,7 @@ import { Womens } from "./Components/Womens/Womens";
 import { Signup } from "./Components/Profile/Signup";
 import { Signin } from "./Components/Profile/Signin";
 import { User } from "./Components/Profile/User";
+import "react-toastify/dist/ReactToastify.css";
 import Cart from "./Components/Cart/Cart";
 
 function App() {
