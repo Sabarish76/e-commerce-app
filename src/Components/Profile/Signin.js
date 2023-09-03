@@ -18,14 +18,26 @@ export const Signin = () => {
     }
   };
   const authen = () => {
-    let userfound = false;
-    data.forEach((e) => {
-      if (email === e.email && password === e.password) {
-        userfound = true;
-        navigate("/");
+    let userFound = false;
+    data.forEach((user) => {
+      if (email === user.email && password === user.password) {
+        userFound = true;
+
+        // Store user data in localStorage
+        const userData = {
+          name: user.name,
+          mobile: user.mobile,
+          email: user.email,
+          avatar: user.avatar,
+        };
+        localStorage.setItem("userData", JSON.stringify(userData));
+
+        // Navigate to the User component
+        navigate("/user");
       }
     });
-    if (!userfound) {
+
+    if (!userFound) {
       alert("User Not Found");
     }
   };

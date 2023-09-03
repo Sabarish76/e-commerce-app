@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import API_URL from "../../URL";
 import axios from "axios";
 export const Signup = () => {
@@ -8,17 +8,25 @@ export const Signup = () => {
   const [email, SetEmail] = useState("");
   const [password, SetPassword] = useState("");
   const navigate = useNavigate();
-  const location = useLocation();
-  const postData = async () => {
-    await axios.post(API_URL, {
-      name,
-      password,
-      mobile,
-      email,
-    });
-    navigate("/signin");
 
-    location.state = { datas: { name, mobile, email } };
+  const postData = async () => {
+    try {
+      await axios.post(API_URL, {
+        name,
+        password,
+        mobile,
+        email,
+      });
+
+      // Store user data in localStorage
+      const userData = { name, mobile, email };
+      localStorage.setItem("userData", JSON.stringify(userData));
+
+      // Navigate to the User component
+      navigate("/signin");
+    } catch (error) {
+      console.error("Error posting data:", error);
+    }
   };
 
   return (
