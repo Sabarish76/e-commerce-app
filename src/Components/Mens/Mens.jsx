@@ -84,7 +84,13 @@ export const Mens = () => {
             const { id, image, Desc, title, Price } = e;
 
             return (
-              <div key={id} className=" my-10 border shadow-2xl ">
+              <div
+                key={id}
+                className=" my-10 border shadow-2xl "
+                data-aos="fade-right"
+                // data-aos-easing="linear"
+                data-aos-duration="1000"
+              >
                 <div className="">
                   <img src={image} alt="img" />
                 </div>
@@ -101,7 +107,7 @@ export const Mens = () => {
                   <p>Rs.{Price}</p>
                 </div>
 
-                <div className=" shadow-xl h-10 flex items-center justify-center text-lg mx-3 my-2 bg-slate-300 hover:bg-slate-400 rounded-md">
+                <div>
                   <AddToCartButton item={e} />
                 </div>
               </div>

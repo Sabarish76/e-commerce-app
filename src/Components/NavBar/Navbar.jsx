@@ -17,7 +17,7 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="w-full h-fit mx-auto text-xl sticky top-0 bg-white">
+    <header className="w-full h-fit mx-auto text-xl sticky top-0 bg-white z-50">
       <nav className="flex w-[95%] sm:w-[100%] lg:w-[90%] sm:justify-evenly sm:items-center relative ">
         <div>
           <Link to="/">

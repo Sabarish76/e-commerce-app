@@ -18,7 +18,12 @@ function AddToCartButton({ item }) {
 
   return (
     <div>
-      <button onClick={() => handleAddToCart(item)}>Add to Cart</button>;
+      <button
+        onClick={() => handleAddToCart(item)}
+        className=" shadow-xl h-10 flex items-center justify-center text-lg mx-auto my-2 bg-slate-300 hover:bg-slate-400 rounded-md w-[90%]"
+      >
+        Add to Cart
+      </button>
       {/* <ToastContainer /> */}
     </div>
   );
