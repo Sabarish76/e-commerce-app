@@ -24,7 +24,9 @@ function AddToCartButton({ item }) {
       >
         Add to Cart
       </button>
-      {/* <ToastContainer /> */}
+      {/* <div className="absolute top-0">
+        <ToastContainer />
+      </div> */}
     </div>
   );
 }

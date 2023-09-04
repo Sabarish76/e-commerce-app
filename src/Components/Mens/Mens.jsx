@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Mensproducts } from "../Json/Mensjson";
 import { Sling as Hamburger } from "hamburger-react";
 import AddToCartButton from "../Context/AddToCartButton";
+import Footer from "../Footer/Footer";
 
 export const Mens = () => {
   const [products, Setproducts] = useState(Mensproducts);
@@ -22,7 +23,7 @@ export const Mens = () => {
   };
   return (
     <>
-      <main>
+      <main className="h-fit min-h-screen">
         <div>
           <div>
             <h1 className="w-full text-center text-4xl font-bold my-7">
@@ -38,9 +39,11 @@ export const Mens = () => {
           <div
             className={`${
               list ? "block" : "hidden"
-            } flex sm:flex flex-col sm:flex-row justify-center gap-7 my-6 sm:my-2 sm:gap-14 ${
-              animation ? "fade-down" : ""
-            }`}
+            } flex sm:flex flex-col sm:flex-row justify-center gap-7 my-6 sm:my-2 sm:gap-14 border w-[60%] mx-auto sm:h-16 font-bold py-5
+             shadow-xl ${animation ? "fade-down" : ""}`}
+            // data-aos="fade-left"
+            // // data-aos-easing="linear"
+            // data-aos-duration="1000"
           >
             <button
               onClick={() => {
@@ -115,6 +118,9 @@ export const Mens = () => {
           })}
         </div>
       </main>
+      <div className="">
+        <Footer />
+      </div>
     </>
   );
 };

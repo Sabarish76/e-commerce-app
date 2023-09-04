@@ -17,7 +17,7 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="w-full h-fit mx-auto text-xl sticky top-0 bg-white z-50">
+    <header className="w-full h-fit mx-auto text-xl sticky top-0 bg-white z-50 shadow-xl">
       <nav className="flex w-[95%] sm:w-[100%] lg:w-[90%] sm:justify-evenly sm:items-center relative ">
         <div>
           <Link to="/">
@@ -46,8 +46,8 @@ export const Navbar = () => {
           <Link to="/womens">
             <p className="mx-5 my-5 sm:my-0">Womens</p>
           </Link>
-          <Link to="/electronics">
-            <p className="mx-5 my-5 sm:my-0">Electronics</p>
+          <Link to="/kids">
+            <p className="mx-5 my-5 sm:my-0">Kids</p>
           </Link>
         </div>
         <div className="flex items-center text-lg mx-16 sm:mx-0 absolute top-7 sm:top-0 right-0 sm:relative">

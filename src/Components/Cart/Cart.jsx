@@ -1,6 +1,7 @@
 import React from "react";
 import { useCart } from "../Context/CartContext";
 import { IoCloseSharp } from "react-icons/io5";
+import Footer from "../Footer/Footer";
 
 const Cart = () => {
   const { cartItems, RemoveFromItem, updateQuantity, totalItems, totalAmount } =
@@ -25,7 +26,7 @@ const Cart = () => {
   };
   return (
     <>
-      <main>
+      <main className="h-fit min-h-screen">
         <h2 className="my-8 text-center text-3xl font-bold">
           {totalItems > 0
             ? `Your Cart Items : ${totalItems}`
@@ -86,8 +87,8 @@ const Cart = () => {
         </div>
         <div
           className="w-[65%] sm:w-[70%] mx-auto flex flex-col sm:flex-row sm:justify-around text-center leading-10 my-8 items-center "
-          data-aos="fade-down"
-          data-aos-duration="1000"
+          // data-aos="fade-right"
+          // data-aos-duration=""
         >
           <div className="text-3xl font-bold">
             <h1>{totalItems > 0 && `Total Amount: R.s.${totalAmount}`}</h1>
@@ -104,6 +105,9 @@ const Cart = () => {
           </div>
         </div>
       </main>
+      <div className="">
+        <Footer />
+      </div>
     </>
   );
 };

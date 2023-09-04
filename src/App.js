@@ -4,7 +4,7 @@ import { Navbar } from "./Components/NavBar/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./Components/Home/Home";
 import { Mens } from "./Components/Mens/Mens";
-import { Electronics } from "./Components/Electronics/Electronics";
+import Kids from "./Components/Kids/Kids";
 import { Womens } from "./Components/Womens/Womens";
 import { Signup } from "./Components/Profile/Signup";
 import { Signin } from "./Components/Profile/Signin";
@@ -20,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/mens" element={<Mens />} />
-          <Route path="/electronics" element={<Electronics />} />
+          <Route path="/kids" element={<Kids />} />
           <Route path="/womens" element={<Womens />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
