@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const User = () => {
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
+
+  const LogOut = () => {
+    localStorage.removeItem("userData");
+
+    navigate("/signin");
+  };
 
   useEffect(() => {
     try {
-      // Retrieve user data from localStorage
       const userData = JSON.parse(localStorage.getItem("userData"));
       if (userData) {
         setUser(userData);
@@ -15,6 +22,10 @@ const User = () => {
       setError("Error parsing user data");
     }
   }, []);
+
+  // useEffect(() => {
+  //   LogOut();
+  // });
 
   if (error) {
     return <div>{error}</div>;
@@ -37,7 +48,11 @@ const User = () => {
           >
             <div>
               {" "}
-              <img src={user.avatar} alt="avatar" className="w-64" />
+              <img
+                src={user.avatar}
+                alt="avatar"
+                className="w-64 rounded-full my-5"
+              />
             </div>
             <div>
               {" "}
@@ -49,11 +64,15 @@ const User = () => {
             <div>
               <p>Email: {user.email}</p>
             </div>
+            <button
+              onClick={LogOut}
+              className="shadow-xl h-10 flex items-center justify-center text-lg mx-auto my-2 bg-slate-300 hover:bg-slate-400 rounded-md w-[20%]"
+            >
+              Logout
+            </button>
           </section>
         </div>
       )}
-
-      {/* Add more user details as needed */}
     </div>
   );
 };

@@ -1,15 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CgProfile } from "react-icons/cg";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import { BiLogIn } from "react-icons/bi";
 import { Sling as Hamburger } from "hamburger-react";
 import { Logo } from "./Logo";
 import { Link } from "react-router-dom";
+import { useCart } from "../Context/CartContext";
 
 export const Navbar = () => {
+  const { totalItems } = useCart();
+  const [isUserSignedIn, setIsUserSignedIn] = useState(false);
   const [mobile, setMobile] = useState(false);
   const [animation, SetAnimation] = useState(false);
   const [isOpen, setOpen] = useState(false);
+
+  useEffect(() => {
+    const userData = localStorage.getItem("userData");
+    if (userData) {
+      setIsUserSignedIn(true);
+    } else {
+      setIsUserSignedIn(false);
+    }
+  }, []);
 
   const MobileMenu = () => {
     setMobile(!mobile);
@@ -50,16 +62,24 @@ export const Navbar = () => {
             <p className="mx-5 my-5 sm:my-0">Kids</p>
           </Link>
         </div>
-        <div className="flex items-center text-lg mx-16 sm:mx-0 absolute top-7 sm:top-0 right-0 sm:relative">
-          <Link to="/user">
-            <CgProfile size={30} className="mx-3" />
-          </Link>
-          <Link to="/cart">
-            <BsFillCartCheckFill size={30} className="mx-3" />
-          </Link>
-          <Link to="/signin">
-            <BiLogIn size={30} className="mx-3" />
-          </Link>
+        <div className="flex items-center text-lg mx-10 sm:mx-0 absolute top-7 sm:top-0 right-0 sm:relative">
+          <>
+            <Link to="/cart" className="relative">
+              <BsFillCartCheckFill size={30} className="mx-3" />
+              <p className="absolute top-0 -right-1">{totalItems}</p>
+            </Link>
+          </>
+          {isUserSignedIn ? (
+            <>
+              <Link to="/user">
+                <CgProfile size={30} className="mx-3" />
+              </Link>
+            </>
+          ) : (
+            <Link to="/signin">
+              <BiLogIn size={30} className="mx-3" />
+            </Link>
+          )}
         </div>
       </nav>
     </header>

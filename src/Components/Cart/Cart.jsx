@@ -41,7 +41,7 @@ const Cart = () => {
                 data-aos="fade-down"
                 data-aos-duration="1000"
               >
-                <div className="ml-5 mt-3 text-slate-300 hover:text-slate-400 ">
+                <div className="flex items-center py-3 px-3 text-slate-300 hover:text-slate-400 ">
                   <button onClick={() => RemoveFromItem(item)}>
                     <IoCloseSharp size={40} />
                   </button>
