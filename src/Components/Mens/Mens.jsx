@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Mensproducts } from "../Json/Mensjson";
 import { Sling as Hamburger } from "hamburger-react";
 import AddToCartButton from "../Context/AddToCartButton";
-import Footer from "../Footer/Footer";
+// import Footer from "../Footer/Footer";
 
-export const Mens = () => {
+const Mens = () => {
   const [products, Setproducts] = useState(Mensproducts);
   const [list, SetList] = useState(false);
   const [isOpen, setOpen] = useState(false);
@@ -118,9 +118,11 @@ export const Mens = () => {
           })}
         </div>
       </main>
-      <div className="">
+      {/* <div className="">
         <Footer />
-      </div>
+      </div> */}
     </>
   );
 };
+
+export default Mens;

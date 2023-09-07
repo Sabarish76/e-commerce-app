@@ -1,7 +1,7 @@
 import React from "react";
 import { useCart } from "../Context/CartContext";
 import { IoCloseSharp } from "react-icons/io5";
-import Footer from "../Footer/Footer";
+// import Footer from "../Footer/Footer";
 
 const Cart = () => {
   const { cartItems, RemoveFromItem, updateQuantity, totalItems, totalAmount } =
@@ -105,9 +105,9 @@ const Cart = () => {
           </div>
         </div>
       </main>
-      <div className="">
+      {/* <div className="">
         <Footer />
-      </div>
+      </div> */}
     </>
   );
 };

@@ -3,7 +3,7 @@ import "./App.css";
 import { Navbar } from "./Components/NavBar/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./Components/Home/Home";
-import { Mens } from "./Components/Mens/Mens";
+import Mens from "./Components/Mens/Mens";
 import Kids from "./Components/Kids/Kids";
 import { Womens } from "./Components/Womens/Womens";
 import { Signup } from "./Components/Profile/Signup";
@@ -11,6 +11,7 @@ import { Signin } from "./Components/Profile/Signin";
 import User from "./Components/Profile/User";
 import "react-toastify/dist/ReactToastify.css";
 import Cart from "./Components/Cart/Cart";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/user" element={<User />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );

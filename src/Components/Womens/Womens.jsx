@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Womensproducts } from "../Json/Womensjson";
 import { Sling as Hamburger } from "hamburger-react";
 import AddToCartButton from "../Context/AddToCartButton";
-import Footer from "../Footer/Footer";
+// import Footer from "../Footer/Footer";
 
 export const Womens = () => {
   const [products, Setproducts] = useState(Womensproducts);
@@ -118,9 +118,9 @@ export const Womens = () => {
           })}
         </div>
       </main>
-      <div>
+      {/* <div>
         <Footer />
-      </div>
+      </div> */}
     </>
   );
 };

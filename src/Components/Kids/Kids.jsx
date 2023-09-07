@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Sling as Hamburger } from "hamburger-react";
 import AddToCartButton from "../Context/AddToCartButton";
-import Footer from "../Footer/Footer";
+// import Footer from "../Footer/Footer";
 import { Kidsproducts } from "../Json/Kidsjson";
 
 const Kids = () => {
@@ -118,9 +118,9 @@ const Kids = () => {
           })}
         </div>
       </main>
-      <div>
+      {/* <div>
         <Footer />
-      </div>
+      </div> */}
     </>
   );
 };

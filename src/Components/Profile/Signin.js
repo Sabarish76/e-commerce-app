@@ -46,7 +46,7 @@ export const Signin = () => {
     Callapi();
   }, []);
   return (
-    <>
+    <div className="h-fit min-h-screen">
       <main className="w-[90%] mx-auto md:w-[50%] lg:w-[35%] border leading-10 text-lg my-5 border-slate-600 shadow-2xl rounded-xl">
         <div className="text-center my-3">
           <h1>Sign In</h1>
@@ -86,6 +86,6 @@ export const Signin = () => {
           </button>
         </div>
       </main>
-    </>
+    </div>
   );
 };
