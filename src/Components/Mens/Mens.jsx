@@ -9,17 +9,28 @@ const Mens = () => {
   const [list, SetList] = useState(false);
   const [isOpen, setOpen] = useState(false);
   const [animation, SetAnimation] = useState(false);
+  const [visibleProducts, setVisibleProducts] = useState(6);
+  const showMoreIncrement = 6;
 
   const FilterResult = (data) => {
     const result = Mensproducts.filter((e) => {
       return data === e.title;
     });
     Setproducts(result);
+    setVisibleProducts(6);
   };
 
   const listmenu = () => {
     SetList(!list);
     SetAnimation(!animation);
+  };
+  const showMoreProducts = () => {
+    setVisibleProducts(visibleProducts + showMoreIncrement);
+  };
+
+  const resetProducts = () => {
+    Setproducts(Mensproducts);
+    setVisibleProducts(6);
   };
   return (
     <>
@@ -75,7 +86,7 @@ const Mens = () => {
             </button>
             <button
               onClick={() => {
-                Setproducts(Mensproducts);
+                Setproducts(resetProducts);
               }}
             >
               All
@@ -83,7 +94,7 @@ const Mens = () => {
           </div>
         </div>
         <div className="w-[75%] h-fit  mx-auto my-6 lg:my-10 leading-10 sm:grid grid-cols-2 gap-10 lg:grid-cols-3 lg:gap-14 lg:w-[80%]">
-          {products.map((e) => {
+          {products.slice(0, visibleProducts).map((e) => {
             const { id, image, Desc, title, Price } = e;
 
             return (
@@ -116,6 +127,11 @@ const Mens = () => {
               </div>
             );
           })}
+          {visibleProducts < products.length && (
+            <div className="flex justify-center mt-4">
+              <button onClick={showMoreProducts}>Show More</button>
+            </div>
+          )}
         </div>
       </main>
       {/* <div className="">
