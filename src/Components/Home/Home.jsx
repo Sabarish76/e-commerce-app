@@ -2,6 +2,8 @@ import React from "react";
 // import Footer from "../Footer/Footer";
 import Animation from "./Animation";
 import Mens from "../Mens/Mens";
+import Womens from "../Womens/Womens";
+import Kids from "../Kids/Kids";
 export const Home = () => {
   return (
     <>
@@ -37,6 +39,12 @@ export const Home = () => {
         </div>
         <div>
           <Mens />
+        </div>
+        <div>
+          <Womens />
+        </div>
+        <div>
+          <Kids />
         </div>
       </main>
     </>

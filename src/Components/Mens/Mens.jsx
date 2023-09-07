@@ -9,15 +9,15 @@ const Mens = () => {
   const [list, SetList] = useState(false);
   const [isOpen, setOpen] = useState(false);
   const [animation, SetAnimation] = useState(false);
-  const [visibleProducts, setVisibleProducts] = useState(6);
-  const showMoreIncrement = 6;
+  const [visibleProducts, setVisibleProducts] = useState(9);
+  const showMoreIncrement = 9;
 
   const FilterResult = (data) => {
     const result = Mensproducts.filter((e) => {
       return data === e.title;
     });
     Setproducts(result);
-    setVisibleProducts(6);
+    setVisibleProducts(9);
   };
 
   const listmenu = () => {
@@ -30,11 +30,11 @@ const Mens = () => {
 
   const resetProducts = () => {
     Setproducts(Mensproducts);
-    setVisibleProducts(6);
+    setVisibleProducts(9);
   };
   return (
     <>
-      <main className="h-fit min-h-screen">
+      <main className="h-fit min-h-screen mt-20">
         <div>
           <div>
             <h1 className="w-full text-center text-4xl font-bold my-7">
@@ -103,7 +103,7 @@ const Mens = () => {
                 className=" my-10 border shadow-2xl "
                 data-aos="fade-right"
                 // data-aos-easing="linear"
-                data-aos-duration="1000"
+                data-aos-duration="2000"
               >
                 <div className="">
                   <img src={image} alt="img" />
@@ -127,9 +127,16 @@ const Mens = () => {
               </div>
             );
           })}
+        </div>
+        <div>
           {visibleProducts < products.length && (
-            <div className="flex justify-center mt-4">
-              <button onClick={showMoreProducts}>Show More</button>
+            <div className="">
+              <button
+                onClick={showMoreProducts}
+                className="shadow-xl h-10 flex  items-center justify-center text-lg mx-auto my-10 text-center bg-slate-300 hover:bg-slate-400 rounded-md w-[60%] sm:w-[40%] md:w-[20%]"
+              >
+                Show More
+              </button>
             </div>
           )}
         </div>

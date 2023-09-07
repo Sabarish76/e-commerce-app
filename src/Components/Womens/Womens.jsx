@@ -9,21 +9,31 @@ export const Womens = () => {
   const [list, SetList] = useState(false);
   const [isOpen, setOpen] = useState(false);
   const [animation, SetAnimation] = useState(false);
+  const [visibleProducts, setVisibleProducts] = useState(9);
+  const showMoreIncrement = 9;
 
   const FilterResult = (data) => {
     const result = Womensproducts.filter((e) => {
       return data === e.title;
     });
     Setproducts(result);
+    setVisibleProducts(9);
+  };
+  const showMoreProducts = () => {
+    setVisibleProducts(visibleProducts + showMoreIncrement);
   };
 
+  const resetProducts = () => {
+    Setproducts(Womensproducts);
+    setVisibleProducts(9);
+  };
   const listmenu = () => {
     SetList(!list);
     SetAnimation(!animation);
   };
   return (
     <>
-      <main>
+      <main className="h-fit min-h-screen mt-20">
         <div>
           <div>
             <h1 className="w-full text-center text-4xl font-bold my-7">
@@ -75,7 +85,7 @@ export const Womens = () => {
             </button>
             <button
               onClick={() => {
-                Setproducts(Womensproducts);
+                Setproducts(resetProducts);
               }}
             >
               All
@@ -83,7 +93,7 @@ export const Womens = () => {
           </div>
         </div>
         <div className="w-[75%] h-fit  mx-auto my-6 lg:my-10 leading-10 sm:grid grid-cols-2 gap-10 lg:grid-cols-3 lg:gap-14 lg:w-[80%]">
-          {products.map((e) => {
+          {products.slice(0, visibleProducts).map((e) => {
             const { id, image, Desc, title, Price } = e;
 
             return (
@@ -92,7 +102,7 @@ export const Womens = () => {
                 className=" my-10 border shadow-2xl "
                 data-aos="fade-right"
                 // data-aos-easing="linear"
-                data-aos-duration="1000"
+                data-aos-duration="2000"
               >
                 <div className="">
                   <img src={image} alt="img" />
@@ -116,6 +126,18 @@ export const Womens = () => {
               </div>
             );
           })}
+        </div>
+        <div>
+          {visibleProducts < products.length && (
+            <div className="">
+              <button
+                onClick={showMoreProducts}
+                className="shadow-xl h-10 flex  items-center justify-center text-lg mx-auto my-10 text-center bg-slate-300 hover:bg-slate-400 rounded-md w-[60%] sm:w-[40%] md:w-[20%]"
+              >
+                Show More
+              </button>
+            </div>
+          )}
         </div>
       </main>
       {/* <div>
