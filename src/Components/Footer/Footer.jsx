@@ -1,39 +1,40 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-white dark:bg-gray-900 h-fit">
+    <footer className="bg-slate-300 h-fit text-black mt-10">
       <div className="mx-auto w-full max-w-screen-xl">
         <div className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
           <div>
-            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+            <h2 className="mb-6 text-sm font-semibold text-black uppercase">
               Company
             </h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
               <li className="mb-4">
-                <a href="/about" className="hover:underline">
-                  About
-                </a>
+                <Link to="/" className="hover:underline">
+                  Home
+                </Link>
               </li>
               <li className="mb-4">
-                <a href="/careers" className="hover:underline">
-                  Careers
-                </a>
+                <Link to="/mens" className="hover:underline">
+                  Mens
+                </Link>
               </li>
               <li className="mb-4">
-                <a href="/brand" className="hover:underline">
-                  Brand Center
-                </a>
+                <Link to="/womens" className="hover:underline">
+                  Womens
+                </Link>
               </li>
               <li className="mb-4">
-                <a href="/blog" className="hover:underline">
-                  Blog
-                </a>
+                <Link to="/kids" className="hover:underline">
+                  Kids
+                </Link>
               </li>
             </ul>
           </div>
           <div>
-            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+            <h2 className="mb-6 text-sm font-semibold text-black uppercase ">
               Help center
             </h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
@@ -60,7 +61,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+            <h2 className="mb-6 text-sm font-semibold text-black uppercase ">
               Legal
             </h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
@@ -82,7 +83,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+            <h2 className="mb-6 text-sm font-semibold text-black uppercase ">
               Download
             </h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
@@ -109,15 +110,15 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="px-4 py-6 bg-gray-100 dark:bg-gray-700 md:flex md:items-center md:justify-between">
-          <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">
+        <div className="px-4 py-6  bg-gray-700 md:flex md:items-center md:justify-between">
+          <span className="text-sm text-white sm:text-center">
             © 2023 <a href="https://flowbite.com/">Sabarish76</a>. All Rights
             Reserved.
           </span>
           <div className="flex mt-4 space-x-5 sm:justify-center md:mt-0">
             <a
               href="https://facebook.com"
-              className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
+              className="text-gray-400 hover:text-gray-900"
             >
               <svg
                 className="w-4 h-4"
